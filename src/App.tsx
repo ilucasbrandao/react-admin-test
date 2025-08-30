@@ -1,32 +1,27 @@
-import { Admin, Resource, ShowGuesser } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import PostIcon from "@mui/icons-material/Book";
-import UserIcon from "@mui/icons-material/Group";
 
 import { Dashboard } from "./Dashboard";
-import { Layout } from "./Layout";
-import { PostList } from "./Posts/PostList";
-import { PostEdit } from "./Posts/PostEdit";
-import { PostCreate } from "./Posts/PostCreate";
-import { UserList } from "./Users";
+import { Layout } from "./components/Layout";
 import { authProvider } from "./auth";
 import dataProvider from "./dataProvider";
-import { PostShow } from "./Posts/PostShow";
+
+import { OrderList } from "./Vendas/VendaList";
+import VendaCreate from "./Vendas/VendaCreate";
 
 export const App = () => (
   <Admin
-    authProvider={authProvider}
     dataProvider={dataProvider}
+    authProvider={authProvider}
     dashboard={Dashboard}
     layout={Layout}
   >
     <Resource
-      name="posts"
-      list={PostList}
-      edit={PostEdit}
-      create={PostCreate}
-      show={PostShow}
+      name="products" // Deve bater com a rota do back-end
+      options={{ label: "Venda" }}
+      list={OrderList}
+      create={VendaCreate}
       icon={PostIcon}
     />
-    <Resource name="users" list={UserList} show={ShowGuesser} icon={UserIcon} />
   </Admin>
 );

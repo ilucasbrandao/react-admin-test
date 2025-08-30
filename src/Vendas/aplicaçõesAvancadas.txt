@@ -1,0 +1,8 @@
+  pesquisar e selecionar um cliente de uma lista
+  
+  <ReferenceInput source="customer_id" reference="customers" label="Customer">
+    <AutocompleteInput optionText="name" />
+  </ReferenceInput>,
+
+--------------------------
+
